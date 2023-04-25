@@ -1,0 +1,10 @@
++=ru.nsu.klochikhina.calculator.model.commands.Addition
+#=ru.nsu.klochikhina.calculator.model.commands.Comment
+DEFINE=ru.nsu.klochikhina.calculator.model.commands.DEFINE
+/=ru.nsu.klochikhina.calculator.model.commands.Division
+*=ru.nsu.klochikhina.calculator.model.commands.Multiplication
+POP=ru.nsu.klochikhina.calculator.model.commands.POP
+PRINT=ru.nsu.klochikhina.calculator.model.commands.PRINT
+PUSH=ru.nsu.klochikhina.calculator.model.commands.PUSH
+SQRT=ru.nsu.klochikhina.calculator.model.commands.SQRT
+-=ru.nsu.klochikhina.calculator.model.commands.Subtraction
