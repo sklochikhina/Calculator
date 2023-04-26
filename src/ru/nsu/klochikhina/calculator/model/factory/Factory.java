@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Factory {
     private final static ArrayList<String> noParameterCommands =
-            new ArrayList<>(Arrays.asList("POP", "+", "-", "*", "/", "SQRT", "PRINT"));
+            new ArrayList<>(Arrays.asList("POP", "+", "-", "*", "/", "SQRT", "PRINT", "SAVE", "READ"));
     private final static ArrayList<String> aFewParametersCommands =
             new ArrayList<>(Arrays.asList("PUSH", "DEFINE"));
     private final static HashMap<String, String> commandPaths = new HashMap<>();
@@ -58,6 +58,7 @@ public class Factory {
                 "+, -, *, /, SQRT - доступные арифметические операции с элементами стека;\n" +
                 "PRINT - печать верхнего элемента стека;\n" +
                 "DEFINE - задать значение параметра;\n" +
-                "STOP - останавливает действие программы.\n";
+                "STOP - останавливает действие программы.\n" +
+                "SAVE - сохранение текущего состояния стека в бинарный файл.\n";
     }
 }

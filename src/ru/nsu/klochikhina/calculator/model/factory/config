@@ -8,3 +8,5 @@ PRINT=ru.nsu.klochikhina.calculator.model.commands.PRINT
 PUSH=ru.nsu.klochikhina.calculator.model.commands.PUSH
 SQRT=ru.nsu.klochikhina.calculator.model.commands.SQRT
 -=ru.nsu.klochikhina.calculator.model.commands.Subtraction
+SAVE=ru.nsu.klochikhina.calculator.model.commands.SAVE
+READ=ru.nsu.klochikhina.calculator.model.commands.READ
