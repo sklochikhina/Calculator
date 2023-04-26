@@ -1,7 +1,6 @@
 package ru.nsu.klochikhina.calculator.model.factory;
 
 import java.io.IOException;
-import java.lang.Class;
 import java.util.*;
 
 public class Factory {
@@ -9,7 +8,7 @@ public class Factory {
             new ArrayList<>(Arrays.asList("POP", "+", "-", "*", "/", "SQRT", "PRINT"));
     private final static ArrayList<String> aFewParametersCommands =
             new ArrayList<>(Arrays.asList("PUSH", "DEFINE"));
-    private static HashMap<String, String> commandPaths = new HashMap<>();
+    private final static HashMap<String, String> commandPaths = new HashMap<>();
 
     public Command createCommand(String[] action, Stack<Double> stack, Map<String, Double> defineList) throws Exception{
         if (!checkInput(action))
