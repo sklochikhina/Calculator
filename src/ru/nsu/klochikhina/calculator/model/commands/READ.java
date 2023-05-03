@@ -3,6 +3,7 @@ package ru.nsu.klochikhina.calculator.model.commands;
 import ru.nsu.klochikhina.calculator.model.factory.Command;
 
 import java.io.*;
+import java.util.List;
 import java.util.Stack;
 
 public class READ implements Command, Serializable {
@@ -14,7 +15,7 @@ public class READ implements Command, Serializable {
     }
 
     @Override
-    public void action(String... strings) throws Exception {
+    public void action(List<String> list) throws Exception {
         try(ObjectInputStream read_stack = new ObjectInputStream(new FileInputStream(file))){
             stack.clear();
             stack.addAll((Stack<Double>) read_stack.readObject());

@@ -1,5 +1,7 @@
 package ru.nsu.klochikhina.calculator.model.factory;
 
+import java.util.List;
+
 public interface Command {
-    void action(String... strings) throws Exception;
+    void action(List<String> list) throws Exception;
 }

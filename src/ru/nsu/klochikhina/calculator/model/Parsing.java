@@ -11,7 +11,7 @@ public class Parsing {
         scanner = new Scanner(stream);
     }
 
-    public String[] parsing() throws Exception {
+    public List<String> parsing() throws Exception {
         try {
             if (scanner.hasNextLine()) {
                 String input = scanner.nextLine().trim();
@@ -19,7 +19,7 @@ public class Parsing {
                     throw new IOException("Строка пуста!");
                 else if (input.equals("STOP"))
                     return null;
-                return input.split("\\s+");
+                return new ArrayList<>(Arrays.asList(input.split("\\s+")));
             }
             else return null;
         } catch (NoSuchElementException e){

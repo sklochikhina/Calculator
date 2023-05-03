@@ -19,9 +19,9 @@ public class Run {
 
     public boolean run() {
         try {
-            String[] arr = pars.parsing();
+            List<String> list = pars.parsing();
 
-            if(arr == null) {
+            if(list == null) {
                 System.out.println("Вы успешно завершили выполнение программы.");
                 return true;
             }
@@ -30,18 +30,9 @@ public class Run {
             factory.getCommandPaths();
 
             try {
-                Command command = factory.createCommand(arr, stack, defineList);
-                switch (arr.length) {
-                    case 1:
-                        command.action();
-                        break;
-                    case 2:
-                        command.action(arr[1]);         // PUSH
-                        break;
-                    case 3:
-                        command.action(arr[1], arr[2]); // DEFINE
-                        break;
-                }
+                Command command = factory.createCommand(list, stack, defineList);
+                list.remove(0);
+                command.action(list);
             } catch (ArithmeticException | IOException exc){
                 System.err.println(exc.getMessage());
                 return false;

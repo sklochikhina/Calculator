@@ -10,3 +10,4 @@ SQRT=ru.nsu.klochikhina.calculator.model.commands.SQRT
 -=ru.nsu.klochikhina.calculator.model.commands.Subtraction
 SAVE=ru.nsu.klochikhina.calculator.model.commands.SAVE
 READ=ru.nsu.klochikhina.calculator.model.commands.READ
+COMPOSITE=ru.nsu.klochikhina.calculator.model.commands.COMPOSITE
