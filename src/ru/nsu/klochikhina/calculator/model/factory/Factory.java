@@ -9,20 +9,32 @@ public class Factory {
     private final static ArrayList<String> aFewParametersCommands =
             new ArrayList<>(Arrays.asList("PUSH", "DEFINE", "COMPOSITE"));
     private final static HashMap<String, String> commandPaths = new HashMap<>();
+    public Flyweight flyweight;
+
+    public Factory() {
+        flyweight = new Flyweight();
+    }
 
     public Command createCommand(List<String> action, Stack<Double> stack, Map<String, Double> defineList) throws Exception{
         if (!checkInput(action))
             throw new IOException("Неверный ввод команды или излишнее/недостаточное количество параметров.");
 
         try {
-            if (action.get(0).equals("PUSH") || action.get(0).equals("COMPOSITE"))
-                return (Command) Class.forName(commandPaths.get(action.get(0))).
-                        getDeclaredConstructor(Stack.class, Map.class).newInstance(stack, defineList);
-            else if (action.get(0).equals("DEFINE"))
-                return (Command) Class.forName(commandPaths.get(action.get(0))).
-                        getDeclaredConstructor(Map.class).newInstance(defineList);
-            else return (Command) Class.forName(commandPaths.get(action.get(0))).
-                        getDeclaredConstructor(Stack.class).newInstance(stack);
+            switch (action.get(0)) {
+                case "PUSH":
+                case "COMPOSITE":
+                    return (Command) Class.forName(commandPaths.get(action.get(0))).getDeclaredConstructor(Stack.class, Map.class).newInstance(stack, defineList);
+                case "DEFINE":
+                    return (Command) Class.forName(commandPaths.get(action.get(0))).getDeclaredConstructor(Map.class).newInstance(defineList);
+                case "+":
+                case "-":
+                case "*":
+                case "/":
+                    flyweight.setCommand((Command) Class.forName(commandPaths.get(action.get(0))).getDeclaredConstructor(Stack.class).newInstance(stack));
+                    return flyweight;
+                default:
+                    return (Command) Class.forName(commandPaths.get(action.get(0))).getDeclaredConstructor(Stack.class).newInstance(stack);
+            }
         } catch (ClassNotFoundException e){
             System.err.println("Класс команды не найден.");
         } catch (InstantiationException e){
