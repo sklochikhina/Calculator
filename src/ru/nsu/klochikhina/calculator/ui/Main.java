@@ -11,7 +11,7 @@ public class Main {
     private static final Stack<Double> stack = new Stack<>();
     private static final Map<String, Double> defineList = new HashMap<>();
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         System.out.println(Factory.getCommandList());
 
         Run running = new Run(stack, defineList);
