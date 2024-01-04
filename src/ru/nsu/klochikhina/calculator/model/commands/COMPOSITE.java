@@ -21,7 +21,7 @@ public class COMPOSITE implements Command {
         Factory factory = new Factory();
         factory.getCommandPaths();
 
-        while (list.size() > 0){
+        while (!list.isEmpty()){
             List<String> input = factory.someCommandArguments(list);
             Command command = factory.createCommand(input, stack, defineList);
             input.remove(0);

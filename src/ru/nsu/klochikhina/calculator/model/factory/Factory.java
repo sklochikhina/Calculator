@@ -21,6 +21,9 @@ public class Factory {
             else if (action.get(0).equals("DEFINE"))
                 return (Command) Class.forName(commandPaths.get(action.get(0))).
                         getDeclaredConstructor(Map.class).newInstance(defineList);
+            else if (action.get(0).startsWith("#"))
+                return (Command) Class.forName(commandPaths.get("#")).
+                        getDeclaredConstructor().newInstance();
             else return (Command) Class.forName(commandPaths.get(action.get(0))).
                         getDeclaredConstructor(Stack.class).newInstance(stack);
         } catch (ClassNotFoundException e){

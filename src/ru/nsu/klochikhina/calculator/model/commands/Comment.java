@@ -6,7 +6,5 @@ import java.util.List;
 
 public class Comment implements Command {
     @Override
-    public void action(List<String> list) throws Exception{
-        // пока ничего
-    }
+    public void action(List<String> list) throws Exception{}
 }
